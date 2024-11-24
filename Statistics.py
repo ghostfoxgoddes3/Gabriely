@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from forest_fire_model import ForestFireModel  
+from forest_fire_model import ForestFireModel  # Assuming base code remains unchanged
 
 def run_phase_transition_experiment(grid_size, densities, iterations=30):
     """
@@ -34,7 +34,7 @@ def run_phase_transition_experiment(grid_size, densities, iterations=30):
 
             # Check if fire reached the opposite edge
             fire_reached_opposite = any(
-                agent.state == "Burning"
+                agent.condition == "On Fire" or agent.condition == "Burned Out"
                 for (x, y), agent in model.grid.iter_cell_list_contents()
                 if x == grid_size - 1  # Opposite edge
             )
